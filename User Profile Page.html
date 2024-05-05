@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - User Profile</title>
+    <link rel="stylesheet" href="User Profile Page.css">
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <main>
+        <section id="user-profile">
+            <h2>Profile Information</h2>
+            <div id="username"></div>
+            <div id="email"></div>
+        </section>
+    </main>
+
+    <script>
+        // Sample user data
+        var user = {
+            username: 'eddy cs-ai master',
+            email: 'burume.kamole@gmail.com'
+        };
+
+        // Display user profile information
+        document.getElementById('username').textContent = 'Username: ' + user.username;
+        document.getElementById('email').textContent = 'Email: ' + user.email;
+    </script>
+</body>
+</html>

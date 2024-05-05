@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <main>
+        <section id="tasks">
+            <h2>My Tasks</h2>
+            <ul id="taskList">
+                <!-- Task items will be dynamically added here -->
+            </ul>
+        </section>
+        <section id="create-task">
+            <h2>Create New Task</h2>
+            <form id="taskForm">
+                <input type="text" id="taskName" placeholder="Task Name" required><br>
+                <input type="date" id="taskDueDate" required><br>
+                <button type="submit">Create Task</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Sample data for tasks
+        var tasks = [
+            { name: 'Task 1', dueDate: '2024-04-20' },
+            { name: 'Task 2', dueDate: '2024-04-22' },
+            { name: 'Task 3', dueDate: '2024-04-25' }
+        ];
+
+        // Function to display tasks
+        function displayTasks() {
+            var taskList = document.getElementById('taskList');
+            taskList.innerHTML = ''; // Clear existing list
+            tasks.forEach(function(task) {
+                var li = document.createElement('li');
+                li.textContent = task.name + ' - Due: ' + task.dueDate;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Display initial list of tasks
+        displayTasks();
+
+        // Add event listener for form submission
+        document.getElementById('taskForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Get input values
+            var taskName = document.getElementById('taskName').value;
+            var taskDueDate = document.getElementById('taskDueDate').value;
+            // Create new task object
+            var newTask = {
+                name: taskName,
+                dueDate: taskDueDate
+            };
+            // Add the new task to the tasks array
+            tasks.push(newTask);
+            // Display updated list of tasks
+            displayTasks();
+            // Clear input fields
+            document.getElementById('taskName').value = '';
+            document.getElementById('taskDueDate').value = '';
+        });
+    </script>
+</body>
+</html>

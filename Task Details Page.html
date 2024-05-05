@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Task Details</title>
+    <link rel="stylesheet" href="Task Details Page.css">
+</head>
+<body>
+    <header>
+        <h1>Task Details</h1>
+    </header>
+    <main>
+        <section id="task-details">
+            <h2>Task Details</h2>
+            <div id="taskName"></div>
+            <div id="dueDate"></div>
+        </section>
+    </main>
+
+    <script>
+        // Sample task data
+        var task = {
+            name: 'Task 1',
+            dueDate: '2024-04-20',
+            description: 'This is the description for Task 1.'
+        };
+
+        // Display task details
+        document.getElementById('taskName').textContent = 'Task Name: ' + task.name;
+        document.getElementById('dueDate').textContent = 'Due Date: ' + task.dueDate;
+    </script>
+</body>
+</html>

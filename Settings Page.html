@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Settings</title>
+    <link rel="stylesheet" href="Settings Page.css">
+</head>
+<body>
+    <header>
+        <h1>Settings</h1>
+    </header>
+    <main>
+        <section id="settings">
+            <h2>Change Password</h2>
+            <form id="passwordChangeForm">
+                <input type="password" id="currentPassword" placeholder="Current Password" required><br>
+                <input type="password" id="newPassword" placeholder="New Password" required><br>
+                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required><br>
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Function to handle form submission for changing password
+        document.getElementById('passwordChangeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Get input values
+            var currentPassword = document.getElementById('currentPassword').value;
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmNewPassword = document.getElementById('confirmNewPassword').value;
+            // Check if new password matches confirm new password
+            if (newPassword !== confirmNewPassword) {
+                alert('New password and confirm new password do not match.');
+                return;
+            }
+            // Perform password change operation (add your logic here)
+            alert('Password changed successfully!');
+            // Clear input fields
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmNewPassword').value = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Home</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <div id="login">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Username" required><br>
+            <input type="password" id="loginPassword" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginError" style="color: red; display: none;">Invalid username or password.</p>
+    </div>
+
+    <div id="signup">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="signupUsername" placeholder="Username" required><br>
+            <input type="email" id="signupEmail" placeholder="Email" required><br>
+            <input type="password" id="signupPassword" placeholder="Password" required><br>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="signupSuccess" style="color: green; display: none;">Sign up successful! You can now log in.</p>
+    </div>
+    
+
+    <script>
+        // JavaScript for handling form submissions and validation
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Get input values
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+            // Check if username and password are valid (add your own validation logic here)
+            if (username === 'user' && password === 'password') {
+                // Successful login, redirect to dashboard or perform other actions
+                alert('Login successful!');
+            } else {
+                // Invalid login, display error message
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Get input values
+            var username = document.getElementById('signupUsername').value;
+            var email = document.getElementById('signupEmail').value;
+            var password = document.getElementById('signupPassword').value;
+            // Check if username, email, and password are valid (add your own validation logic here)
+            if (username && email && password) {
+                // Successful signup, display success message
+                document.getElementById('signupSuccess').style.display = 'block';
+                // You can perform additional actions here like saving user data to a database
+            }
+        });
+    </script>
+</body>
+</html>

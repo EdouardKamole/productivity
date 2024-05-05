@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Onboarding Tutorial</h1>
+        <div class="step active" id="step1">
+            <h2>Step 1</h2>
+            <p>This is the first step of the tutorial.</p>
+            <button onclick="nextStep()">Next</button>
+        </div>
+        <div class="step" id="step2">
+            <h2>Step 2</h2>
+            <p>This is the second step of the tutorial.</p>
+            <button onclick="nextStep()">Next</button>
+        </div>
+        <div class="step" id="step3">
+            <h2>Step 3</h2>
+            <p>This is the final step of the tutorial.</p>
+            <button onclick="finish()">Finish</button>
+        </div>
+    </div>
+
+    <script>
+        var currentStep = 1;
+        var steps = document.querySelectorAll('.step');
+
+        function nextStep() {
+            if (currentStep < steps.length) {
+                steps[currentStep - 1].classList.remove('active');
+                currentStep++;
+                steps[currentStep - 1].classList.add('active');
+            }
+        }
+
+        function finish() {
+            alert('Congratulations! You have completed the onboarding tutorial.');
+            // Redirect to dashboard or next page
+            // window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>
